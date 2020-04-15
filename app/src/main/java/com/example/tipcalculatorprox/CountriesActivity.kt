@@ -38,7 +38,6 @@ class CountriesActivity : AppCompatActivity(), Observer {
 //            intent.putExtra("mail", voluntar.mail)
 //            startActivity(intent)
 //        }
-
     }
 
     override fun update(o: Observable?, arg: Any?) {
@@ -54,21 +53,26 @@ class CountriesActivity : AppCompatActivity(), Observer {
 
         }
     }
+    override  fun onBackPressed() {
 
-    override fun onResume() {
-        super.onResume()
-        CountryModel.addObserver(this)
-    }
+        val intent= Intent(this, MainActivity::class.java)
+        intent.setFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);
+        startActivity(intent)
+        finish()}
+//    override fun onResume() {
+//        super.onResume()
+//        CountryModel.addObserver(this)
+//    }
+//
+//    override fun onPause() {
+//        super.onPause()
+//        CountryModel.deleteObserver(this)
+//    }
+//
+//    override fun onStop() {
+//        super.onStop()
+//        CountryModel.deleteObserver(this)
 
-    override fun onPause() {
-        super.onPause()
-        CountryModel.deleteObserver(this)
-    }
-
-    override fun onStop() {
-        super.onStop()
-        CountryModel.deleteObserver(this)
-    }
 
 }
 
