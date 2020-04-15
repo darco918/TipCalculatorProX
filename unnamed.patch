@@ -1,0 +1,16 @@
+Index: app/src/main/res/layout/activity_main.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/res/layout/activity_main.xml	(date 1586908333000)
++++ app/src/main/res/layout/activity_main.xml	(date 1586965846000)
+@@ -167,7 +167,7 @@
+         android:layout_marginTop="25dp"
+         android:layout_marginEnd="50dp"
+         android:textColor="#118F03"
+-        android:text="$ 30.01"
++        android:text="$ 30.11"
+         android:textSize="23sp"
+         android:gravity="center"
+         android:textStyle="bold"
