@@ -18,13 +18,17 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         val billAmount = findViewById<TextView>(R.id.bill_amount_text)
-
         billAmount.setOnClickListener {
             val intent= Intent(this, CountriesActivity::class.java)
             startActivity(intent)
         }
 
+
         val editTextBillAmount = findViewById<EditText>(R.id.input_amount)
+        val editTextNumberPeople = findViewById<EditText>(R.id.input_number_people)
+        val editTextPercentage = findViewById<EditText>(R.id.input_tip_percentage)
+
+
 
         editTextBillAmount.addTextChangedListener(object : TextWatcher{
             override fun afterTextChanged(s: Editable?) {
@@ -35,7 +39,6 @@ class MainActivity : AppCompatActivity() {
                 else{
                     computeTip(0.00, 1,20)
                 }
-
 
             }
 
@@ -53,7 +56,42 @@ class MainActivity : AppCompatActivity() {
         })
 
 
-       // computeTip(120.00, 6, 20)
+
+        //check if they are all null
+        //CHECK IF NUMBER IS 0
+        editTextNumberPeople.addTextChangedListener(object : TextWatcher{
+            override fun afterTextChanged(s: Editable?) {
+                if(editTextNumberPeople.getText().toString() != ""){
+                    computeTip(editTextBillAmount.getText().toString().toDouble(), editTextNumberPeople.getText().toString().toInt(),20)
+                    //                editTextBillAmount.highlightColor = rgb(255,255,255)
+                }
+                else{
+                    computeTip(editTextBillAmount.getText().toString().toDouble(), 1,20)
+                }
+            }
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
+            }
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+            }
+        })
+
+
+        editTextPercentage.addTextChangedListener(object : TextWatcher{
+            override fun afterTextChanged(s: Editable?) {
+                if(editTextPercentage.getText().toString() != ""){
+                    computeTip(editTextBillAmount.getText().toString().toDouble(), editTextNumberPeople.getText().toString().toInt(),editTextPercentage.getText().toString().toInt())
+                    //                editTextBillAmount.highlightColor = rgb(255,255,255)
+                }
+                else{
+                    computeTip(editTextBillAmount.getText().toString().toDouble(), 1,10)
+                }
+            }
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
+            }
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+            }
+        })
+
 
     }
 
@@ -61,7 +99,9 @@ class MainActivity : AppCompatActivity() {
     private fun computeTip( billAmount:Double,numberPeople: Int, tipPercentage:Int){
         val totalTip:Double = billAmount * ((tipPercentage.toDouble())/100)
 
-        tip_amount_text.text = ("$   " +(totalTip / numberPeople).toString())
+        tip_amount_text.text = ("$   " +("%.2f".format(totalTip / numberPeople).toDouble()).toString())
+        
+
         total_tip_textview.text = ("$   " + totalTip.toString())
     }
 }
