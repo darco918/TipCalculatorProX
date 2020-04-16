@@ -99,9 +99,12 @@ class MainActivity : AppCompatActivity() {
     private fun computeTip( billAmount:Double,numberPeople: Int, tipPercentage:Int){
         val totalTip:Double = billAmount * ((tipPercentage.toDouble())/100)
 
-        tip_amount_text.text = ("$   " +("%.2f".format(totalTip / numberPeople).toDouble()).toString())
-        
+        total_tip_textview.text = ("$   " + "%.2f".format(totalTip).toDouble().toString())
+        // the total tip for all people combined
 
-        total_tip_textview.text = ("$   " + totalTip.toString())
+        tip_amount_text.text = ("$   " +("%.2f".format(totalTip / numberPeople).toDouble()).toString())
+        // for each person
+
+
     }
 }
