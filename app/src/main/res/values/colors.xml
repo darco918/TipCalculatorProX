@@ -2,11 +2,11 @@
 <resources>
     <color name="colorPrimary">#FF009B</color>
     <color name="colorPrimaryDark">#CC007C</color>
-    <color name="colorAccent">#0DFF00</color>
-    <color name="backgroundGrayMain">#F4F4F4</color>
+    <color name="colorAccent">#FF0000</color>
+    <color name="backgroundGrayMain">#E1E2E1</color>
     <color name="lightGreen">#ADFF00</color>
     <color name="mainTextViewColor">#FFFFFF</color>
     <color name="black">#707070</color>
     <color name="transparent">#00000000</color>
-
+    <color name="babyBlue">#00FFFF</color>
 </resources>
