@@ -186,7 +186,7 @@
         android:background="@color/transparent"
         android:elevation="2dp"
         android:gravity="center"
-        android:text="The tip divided"
+        android:text="Each person pays"
         android:textColor="@color/black"
         android:textSize="19sp"
         android:textStyle="bold"

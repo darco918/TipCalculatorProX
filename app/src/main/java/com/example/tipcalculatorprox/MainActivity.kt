@@ -30,14 +30,20 @@ class MainActivity : AppCompatActivity() {
         val editTextBillAmount = findViewById<EditText>(R.id.input_amount)
         val editTextNumberPeople = findViewById<EditText>(R.id.input_number_people)
         val editTextPercentage = findViewById<EditText>(R.id.input_tip_percentage)
+        //editTextBillAmount.hint = "2"
+        editTextBillAmount.setText("1")
+        editTextNumberPeople.setText("1")
+        editTextPercentage.setText("15") // get the country percentage
 
-
+        editTextBillAmount.setTextColor(rgb(255,255,255))
+        editTextNumberPeople.setTextColor(rgb(255,255,255))
+        editTextPercentage.setTextColor(rgb(255,255,255))
 
         editTextBillAmount.addTextChangedListener(object : TextWatcher{
             override fun afterTextChanged(s: Editable?) {
                 if(editTextBillAmount.getText().toString() != ""){
-                    computeTip(editTextBillAmount.getText().toString().toDouble(), 1,20)
-    //                editTextBillAmount.highlightColor = rgb(255,255,255)
+                    computeTip(editTextBillAmount.getText().toString().toDouble(), editTextNumberPeople.getText().toString().toInt(),editTextPercentage.getText().toString().toInt())
+                    editTextBillAmount.setTextColor(rgb(255,255,255))
                 }
                 else{
                     computeTip(0.00, 1,20)
@@ -51,7 +57,7 @@ class MainActivity : AppCompatActivity() {
 
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
                 computeTip(editTextBillAmount.hint.toString().toDouble(), 1,20)
-                editTextBillAmount.highlightColor = rgb(255,255,255)
+                //editTextBillAmount.highlightColor = rgb(255,255,255)
 
             }
         })
@@ -63,7 +69,7 @@ class MainActivity : AppCompatActivity() {
         editTextNumberPeople.addTextChangedListener(object : TextWatcher{
             override fun afterTextChanged(s: Editable?) {
                 if(editTextNumberPeople.getText().toString() != ""){
-                    computeTip(editTextBillAmount.getText().toString().toDouble(), editTextNumberPeople.getText().toString().toInt(),20)
+                    computeTip(editTextBillAmount.getText().toString().toDouble(), editTextNumberPeople.getText().toString().toInt(),editTextPercentage.getText().toString().toInt())
                     //                editTextBillAmount.highlightColor = rgb(255,255,255)
                 }
                 else{
