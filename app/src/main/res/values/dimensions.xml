@@ -5,4 +5,5 @@
     <dimen name="textViewHeight">40dp</dimen>
     <dimen name="editTextHeight">38dp</dimen>
     <dimen name="textSize">20sp</dimen>
+    <dimen name="elevationEditText">2dp</dimen>
 </resources>

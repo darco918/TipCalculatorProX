@@ -10,6 +10,7 @@ import android.widget.TextView
 import androidx.core.widget.addTextChangedListener
 import kotlinx.android.synthetic.main.activity_main.*
 import android.text.TextWatcher
+import androidx.constraintlayout.widget.ConstraintLayout
 
 class MainActivity : AppCompatActivity() {
 
@@ -17,11 +18,13 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val billAmount = findViewById<TextView>(R.id.bill_amount_text)
-        billAmount.setOnClickListener {
+        val constraintLayoutFlag = findViewById<ConstraintLayout>(R.id.flags_clayout)
+        constraintLayoutFlag.setOnClickListener(){
             val intent= Intent(this, CountriesActivity::class.java)
             startActivity(intent)
         }
+
+
 
 
         val editTextBillAmount = findViewById<EditText>(R.id.input_amount)
@@ -43,8 +46,6 @@ class MainActivity : AppCompatActivity() {
             }
 
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
-                computeTip(editTextBillAmount.hint.toString().toDouble(), 1,20)
-                editTextBillAmount.highlightColor = rgb(255,255,255)
 
             }
 
