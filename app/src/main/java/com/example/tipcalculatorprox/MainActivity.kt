@@ -1,5 +1,6 @@
 package com.example.tipcalculatorprox
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.graphics.Color.rgb
 import androidx.appcompat.app.AppCompatActivity
@@ -14,6 +15,7 @@ import androidx.constraintlayout.widget.ConstraintLayout
 
 class MainActivity : AppCompatActivity() {
 
+    @SuppressLint("WrongViewCast")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -24,6 +26,11 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
+        val constraintLayoutDashboard = findViewById<TextView>(R.id.to_dashboard)
+        constraintLayoutDashboard.setOnClickListener(){
+            val intent= Intent(this, DashboardActivity::class.java)
+            startActivity(intent)
+        }
 
 
 

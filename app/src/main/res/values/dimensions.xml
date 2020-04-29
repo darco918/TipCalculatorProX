@@ -6,4 +6,6 @@
     <dimen name="editTextHeight">38dp</dimen>
     <dimen name="textSize">20sp</dimen>
     <dimen name="elevationEditText">2dp</dimen>
+    <dimen name="dashboardFragmentWidth">180dp</dimen>
+    <dimen name="dashboardFragmentHeight">150dp</dimen>
 </resources>

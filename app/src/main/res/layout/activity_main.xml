@@ -19,6 +19,22 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
+        android:id="@+id/to_dashboard"
+        android:layout_width="380dp"
+        android:layout_height="@dimen/editTextHeight"
+        android:layout_marginTop="@dimen/marginTopMain"
+        android:layout_marginEnd="@dimen/marginRightMain"
+        android:background="@drawable/input_rounded"
+        android:elevation="@dimen/elevationEditText"
+        android:gravity="center"
+        android:shadowColor="@color/mainTextViewColor"
+        android:textColor="@color/mainTextViewColor"
+        android:text="To Dashboard"
+        android:textSize="22sp"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
         android:id="@+id/bill_amount_text"
         android:layout_width="0dp"
         android:layout_height="@dimen/textViewHeight"
